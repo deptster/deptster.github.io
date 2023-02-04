@@ -6,19 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <style>
+        :root {
+            --text: #c9d1d9;
+            --line: #bbc1e1;
+            --line-active: #275efe;
+        }
+
         body {
             background-color: #0d1117;
-            color: #c9d1d9;
+            color: var(--text);
             font-family: "Calibri";
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-y: hidden;
         }
+
         a {
-            color: #c9d1d9;
+            color: var(--text);
             font-size: larger;
+        }
+        
+        .uniq_link .just_text {
+            font-size: larger;
+        }
+
+        .uniq_link a {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            margin: 0 var(--spacing, 0px);
+            transition: margin 0.25s;
+        }
+
+        .uniq_link a svg {
+            width: 76px;
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 7px) translateZ(0);
+            fill: none;
+            stroke: var(--stroke, var(--line));
+            stroke-linecap: round;
+            stroke-width: 2px;
+            stroke-dasharray: var(--offset, 69px) 278px;
+            stroke-dashoffset: 359px;
+            transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+        }
+
+        .uniq_link a:hover {
+            --spacing: 5px;
+            --stroke: var(--line-active);
+            --stroke-delay: 0.1s;
+            --offset: 180px;
         }
     </style>
 </head>
 <body>
     <h1> Wiki </h1>
-    <a href="https://github.com/deptster/deptster.github.io/wiki"> >Access Wiki< </a>
+    <div class="uniq_link">
+        <span class="just_text"> Check out </span>
+        <a href="https://github.com/deptster/deptster.github.io/wiki"> 
+            the Wiki
+            <svg viewBox="0 0 70 36">
+                <path d="M 6.9739 30.8153 H 65 C 72 31 75.5358 -3.6847 34 1 C -16.1598 11.2025 0.8941 33.9766 26.9922 34.3153 C 104.062 35.3153 58 -6 24 7" />
+            </svg>
+        </a>
+        <span class="just_text"> here</span>
+    </div>
 </body>
 </html>
