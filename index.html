@@ -2,46 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
+    <title>Home</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
         :root {
-            --text: #c9d1d9;
+            --text-dark: #c9d1d9;
+            --text-white: #fff;
             --line: #bbc1e1;
             --line-active: #275efe;
+            --black-bg: #343a40;
         }
-
         body {
-            background-color: #0d1117;
-            color: var(--text);
-            font-family: "Calibri";
-            min-height: 100vh;
+            font-family: 'Poppins';
+        }
+        .element {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        .container {
+            width : 1100px;
+            margin: 0 auto;
+        }
+        .flex_display {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            overflow-y: hidden;
         }
-
-        a {
-            color: var(--text);
-            font-size: larger;
+        .container50 {
+            width: 50%;
         }
-        
-        .uniq_link .just_text {
-            font-size: larger;
+        .container30 {
+            width: 30%;
         }
-
-        .uniq_link a {
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-            color: inherit;
-            margin: 0 var(--spacing, 0px);
-            transition: margin 0.25s;
+        .container70 {
+            width: 70%;
         }
-
         .uniq_link a svg {
             width: 76px;
             height: 40px;
@@ -57,26 +51,88 @@
             stroke-dashoffset: 359px;
             transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
         }
-
         .uniq_link a:hover {
             --spacing: 5px;
             --stroke: var(--line-active);
             --stroke-delay: 0.1s;
             --offset: 180px;
         }
+        .uniq_link .just_text {
+            font-size: larger;
+        }
+        .uniq_link a {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            margin: 0 var(--spacing, 0px);
+            transition: margin 0.25s;
+        }
+        a {
+            color: var(--text-dark);
+            font-size: larger;
+        }
+        h1,h2,h3,h4,h5 {
+            margin: 0px;
+        }
+        .black_box {
+            background-color: var(--black-bg);
+            color: var(--text-white);
+            padding: 30px;
+            border-radius: 15px;
+        }
     </style>
 </head>
 <body>
-    <h1> Wiki </h1>
-    <div class="uniq_link">
-        <span class="just_text"> Check out </span>
-        <a href="https://github.com/deptster/deptster.github.io/wiki"> 
-            the Wiki
-            <svg viewBox="0 0 70 36">
-                <path d="M 6.9739 30.8153 H 65 C 72 31 75.5358 -3.6847 34 1 C -16.1598 11.2025 0.8941 33.9766 26.9922 34.3153 C 104.062 35.3153 58 -6 24 7" />
-            </svg>
-        </a>
-        <span class="just_text"> here</span>
-    </div>
+    <section class="element">
+        <div class="container">
+            <div class="flex_display">
+                <div class="container70">
+                    <h1>
+                        Deepan Tripathi
+                    </h1>
+                    <div>
+                        Don't be the problem, Try and solve it.
+                    </div>
+                    <br>
+                    <div class="flex_display">
+                        <div>
+                            <h3>
+                                <!-- About us -->
+                            </h3>
+                            <div>
+                                <!-- Lorem ipsum dolors sit omnibus ametconse ctetur adipisci elit, sed do eiusmod tempor incos ididunt ut.                            -->
+                            </div>
+                        </div>
+                        <div>
+                            <h3>
+                                <!-- Our goal -->
+                            </h3>
+                            <div>
+                                <!-- Lorem ipsum dolors sit omnibus ametconse ctetur adipisci elit, sed do eiusmod tempor incos ididunt ut.                            -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container30">
+                    <div class="black_box">
+                        <h1>
+                            WIKI
+                        </h1>
+                        <div class="uniq_link">
+                            <span class="just_text"> Check out </span>
+                            <a href="https://github.com/deptster/deptster.github.io/wiki"> 
+                                the Wiki
+                                <svg viewBox="0 0 70 36">
+                                    <path d="M 6.9739 30.8153 H 65 C 72 31 75.5358 -3.6847 34 1 C -16.1598 11.2025 0.8941 33.9766 26.9922 34.3153 C 104.062 35.3153 58 -6 24 7" />
+                                </svg>
+                            </a>
+                            <span class="just_text"> here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
