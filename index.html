@@ -7,11 +7,12 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
         :root {
-            --text-dark: #c9d1d9;
+            --text-offwhite: #c9d1d9;
             --text-white: #fff;
             --line: #bbc1e1;
             --line-active: #275efe;
             --black-bg: #343a40;
+            --black: #000;
         }
         body {
             font-family: 'Poppins';
@@ -68,8 +69,8 @@
             margin: 0 var(--spacing, 0px);
             transition: margin 0.25s;
         }
-        a {
-            color: var(--text-dark);
+        .linkInCard {
+            color: var(--text-offwhite);
             font-size: larger;
         }
         h1,h2,h3,h4,h5 {
@@ -80,6 +81,10 @@
             color: var(--text-white);
             padding: 30px;
             border-radius: 15px;
+        }
+        .bulletPoints a {
+            color: var(--black);
+
         }
     </style>
 </head>
@@ -92,24 +97,27 @@
                         Deepan Tripathi
                     </h1>
                     <div>
-                        Don't be the problem, Try and solve it.
+                        Teaching sand to think was a mistake.
                     </div>
                     <br>
                     <div class="flex_display">
                         <div>
                             <h3>
-                                <!-- About us -->
+                               Knowledge Base - Zoho
                             </h3>
-                            <div>
-                                <!-- Lorem ipsum dolors sit omnibus ametconse ctetur adipisci elit, sed do eiusmod tempor incos ididunt ut.                            -->
+                            <div class="bulletPoints">
+                              <a href="https://www.zoho.com/crm/developer/docs/api/v6/purchase-from-dashboard.html">‣ Purchase More API -ZOHO CRM
+                              </a> <br>
+                              <a href="https://www.zoho.com/crm/developer/docs/api/v6/api-limits.html">‣ API Limits - Zoho CRM
+                              </a>
                             </div>
                         </div>
                         <div>
                             <h3>
-                                <!-- Our goal -->
+<!--                                 Our goal -->
                             </h3>
                             <div>
-                                <!-- Lorem ipsum dolors sit omnibus ametconse ctetur adipisci elit, sed do eiusmod tempor incos ididunt ut.                            -->
+<!--                                 Lorem ipsum dolors sit omnibus ametconse ctetur adipisci elit, sed do eiusmod tempor incos ididunt ut.                            -->
                             </div>
                         </div>
                     </div>
@@ -121,7 +129,7 @@
                         </h1>
                         <div class="uniq_link">
                             <span class="just_text"> Check out </span>
-                            <a href="https://github.com/deptster/deptster.github.io/wiki"> 
+                            <a class="linkInCard" href="https://github.com/deptster/deptster.github.io/wiki"> 
                                 the Wiki
                                 <svg viewBox="0 0 70 36">
                                     <path d="M 6.9739 30.8153 H 65 C 72 31 75.5358 -3.6847 34 1 C -16.1598 11.2025 0.8941 33.9766 26.9922 34.3153 C 104.062 35.3153 58 -6 24 7" />
