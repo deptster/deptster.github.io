@@ -7,12 +7,12 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
         :root {
-            --text-offwhite: #c9d1d9;
-            --text-white: #fff;
-            --line: #bbc1e1;
+            --text-offwhite: #343a40;
+            --text-white: #202124;
+            --line: #F1F3F4;
             --line-active: #275efe;
-            --black-bg: #343a40;
-            --black: #000;
+            --black-bg: #9AA0A6;
+            --black: #fff;
         }
         body {
             font-family: 'Poppins';
@@ -99,106 +99,78 @@
         #light{
             display: none;
         }
+        pre {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.428571429;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
         /* CSS */
-        .button-49,
-        .button-49:after {
-            width: 150px;
-            height: 76px;
-            line-height: 78px;
-            font-size: 20px;
-            font-family: 'Bebas Neue', sans-serif;
-            background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
-            border: 0;
-            color: #fff;
-            letter-spacing: 3px;
-            box-shadow: 6px 0px 0px #00E6F6;
-            outline: transparent;
-            position: relative;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
+        .button-48 {
+          appearance: none;
+          background-color: #FFFFFF;
+          border-width: 0;
+          box-sizing: border-box;
+          color: #000000;
+          cursor: pointer;
+          display: inline-block;
+          font-family: Clarkson,Helvetica,sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0;
+          line-height: 1em;
+          margin: 0;
+          opacity: 1;
+          outline: 0;
+          padding: 1.5em 2.2em;
+          position: relative;
+          text-align: center;
+          text-decoration: none;
+          text-rendering: geometricprecision;
+          text-transform: uppercase;
+          transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          white-space: nowrap;
         }
 
-        .button-49:after {
-            --slice-0: inset(50% 50% 50% 50%);
-            --slice-1: inset(80% -6px 0 0);
-            --slice-2: inset(50% -6px 30% 0);
-            --slice-3: inset(10% -6px 85% 0);
-            --slice-4: inset(40% -6px 43% 0);
-            --slice-5: inset(80% -6px 5% 0);
-            
-            content: 'Darkness';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
-            text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
-            clip-path: var(--slice-0);
+        .button-48:before {
+          animation: opacityFallbackOut .5s step-end forwards;
+          backface-visibility: hidden;
+          background-color: #EBEBEB;
+          clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+          content: "";
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          transform: translateZ(0);
+          transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+          width: 100%;
         }
-
-        .button-49:hover:after {
-            animation: 1s glitch;
-            animation-timing-function: steps(2, end);
+        
+        .button-48:hover:before {
+          animation: opacityFallbackIn 0s step-start forwards;
+          clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
         }
-
-        @keyframes glitch {
-        0% {
-            clip-path: var(--slice-1);
-            transform: translate(-20px, -10px);
+        
+        .button-48:after {
+          background-color: #FFFFFF;
         }
-        10% {
-            clip-path: var(--slice-3);
-            transform: translate(10px, 10px);
-        }
-        20% {
-            clip-path: var(--slice-1);
-            transform: translate(-10px, 10px);
-        }
-        30% {
-            clip-path: var(--slice-3);
-            transform: translate(0px, 5px);
-        }
-        40% {
-            clip-path: var(--slice-2);
-            transform: translate(-5px, 0px);
-        }
-        50% {
-            clip-path: var(--slice-3);
-            transform: translate(5px, 0px);
-        }
-        60% {
-            clip-path: var(--slice-4);
-            transform: translate(5px, 10px);
-        }
-        70% {
-            clip-path: var(--slice-2);
-            transform: translate(-10px, 10px);
-        }
-        80% {
-            clip-path: var(--slice-5);
-            transform: translate(20px, -10px);
-        }
-        90% {
-            clip-path: var(--slice-1);
-            transform: translate(-10px, 0px);
-        }
-        100% {
-            clip-path: var(--slice-1);
-            transform: translate(0);
-        }
-        }
-
-        @media (min-width: 768px) {
-            .button-49,
-            .button-49:after {
-                width: 200px;
-                height: 86px;
-                line-height: 88px;
-            }
+        
+        .button-48 span {
+          z-index: 1;
+          position: relative;
         }
     </style>
 </head>
@@ -208,14 +180,14 @@
         <div class="container">
 
             <div class="flex_display" style="justify-content: center;">
-                <button class="button-49" role="button" id="light">Bring Light</button>
-                <button class="button-49" role="button" id="dark">Bring Darkness</button>
+                <button class="button-48" role="button" id="light"><span class="text">Dark Mode</span></button>
+                <button class="button-48" role="button" id="dark"><span class="text">Light Mode</span></button>
             </div>
             <br><br>
             <div class="flex_display">
                 <div class="container70">
                     <h1>
-                        Deepan Tripathi
+                        Deepan T
                     </h1>
                     <div style="color: var(--black);">
                         Teaching sand to think was a mistake.
@@ -231,21 +203,22 @@
                                 <li><a href="https://static.zohocdn.com/crm/8217537/documentation/DotSDK/Modules.html">lil bit Advanced Stuff (Get Data, Connections, Functions, Settings etc.)</a></li>
                             </ul>
                         </div>
-<!--                         <div>
+                        <div>
                             <h3>
-                               'bout API's
+                               Zoho CRM Widget Documentation
                             </h3>
                             <ul class="arrow_list">
-                                <li><a href="https://www.zoho.com/crm/developer/docs/api/v6/purchase-from-dashboard.html">Purchase More API -ZOHO CRM</a></li>
-                                <li><a href="https://www.zoho.com/crm/developer/docs/api/v6/api-limits.html">API Limits - Zoho CRM</a></li>
+                                <li><a href="https://help.zwidgets.com/help/latest/index.html">Documentation Link</a></li>
+                                <li>CDN URL: (always check this link in documentation, version might differ) <br>
+                                <pre><code>https://live.zwidgets.com/js-sdk/1.2/ZohoEmbededAppSDK.min.js</code></pre></li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="flex_display">
                         <div>
                             <h3>
-                               'bout API's
+                               'bout Zoho CRM API's
                             </h3>
                             <ul class="arrow_list">
                                 <li><a href="https://www.zoho.com/crm/developer/docs/api/v6/purchase-from-dashboard.html">Purchase More API -ZOHO CRM</a></li>
@@ -280,9 +253,9 @@
         const root = document.querySelector(':root');
         darkBtn.addEventListener("click", darkOn);
         lightBtn.addEventListener("click", lightOn);
-        function darkOn () {
-            darkBtn.style.display = "none";
-            lightBtn.style.display = "block";
+        function lightOn () {
+            darkBtn.style.display = "block";
+            lightBtn.style.display = "none";
             root.style.setProperty('--text-offwhite', '#343a40');
             root.style.setProperty('--text-white', '#202124');
             root.style.setProperty('--line', '#F1F3F4');
@@ -290,9 +263,9 @@
             root.style.setProperty('--black-bg', '#9AA0A6');
             root.style.setProperty('--black', '#fff');
         }
-        function lightOn () {
-            darkBtn.style.display = "block";
-            lightBtn.style.display = "none";
+        function darkOn () {
+            darkBtn.style.display = "none";
+            lightBtn.style.display = "block";
             root.style.setProperty('--text-offwhite', '#c9d1d9');
             root.style.setProperty('--text-white', '#fff');
             root.style.setProperty('--line', '#bbc1e1');
