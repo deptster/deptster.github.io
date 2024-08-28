@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrilateral Area Calculator</title>
+</head>
+<body>
+    <h1>Quadrilateral Area Calculator</h1>
+
+    <label for="ab">Side AB (km): </label>
+    <input type="number" id="ab" placeholder="11.8"><br><br>
+
+    <label for="bc">Side BC (km): </label>
+    <input type="number" id="bc" placeholder="9.79"><br><br>
+
+    <label for="cd">Side CD (km): </label>
+    <input type="number" id="cd" placeholder="11.8"><br><br>
+
+    <label for="da">Side DA (km): </label>
+    <input type="number" id="da" placeholder="9.78"><br><br>
+
+    <label for="ac">Diagonal (km): </label>
+    <input type="number" id="ac" placeholder="14.78"><br><br>
+
+    <button onclick="calculateArea()">Calculate Area</button>
+
+    <h2 id="result">Area: </h2>
+
+    <script>
+        function heronsArea(a, b, c) {
+            const s = (a + b + c) / 2;
+            return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        }
+
+        function calculateArea() {
+            const ab = parseFloat(document.getElementById("ab").value);
+            const bc = parseFloat(document.getElementById("bc").value);
+            const cd = parseFloat(document.getElementById("cd").value);
+            const da = parseFloat(document.getElementById("da").value);
+            const ac = parseFloat(document.getElementById("ac").value);
+
+            // Area of Triangle ABC
+            const areaABC = heronsArea(ab, bc, ac);
+
+            // Area of Triangle ACD
+            const areaACD = heronsArea(ac, cd, da);
+
+            // Total area of the quadrilateral
+            const totalArea = areaABC + areaACD;
+
+            // Display the result
+            document.getElementById("result").textContent = "Area: " + totalArea.toFixed(2) + " square kilometers";
+        }
+    </script>
+</body>
+</html>
