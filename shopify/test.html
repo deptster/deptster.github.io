@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Useful Shopify Codes</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
+  />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Useful Shopify Codes</h1>
+    <br>
+    <h2>Marquee Announcement Bar</h2>
+    <div class="description">
+        <p>This code creates a customizable marquee announcement bar for Shopify stores. It allows you to set background color, text color, scroll duration, font size, font weight and most important you can customize Text! </p>
+        <p>To use this code, create a new section "marquee-announcement-bar.liquid" in your shopify theme code and copy and paste the code in there. </p>
+    </div>
+    
+  <div class="code-window">
+    <div class="window-header">
+      <span class="red"></span>
+      <span class="yellow"></span>
+      <span class="green"></span>
+
+      <button class="copy-btn" id="copyBtn" title="Copy code">Copy</button>
+      <div class="copy-success" id="copySuccess">Copied!</div>
+    </div>
+    <pre><code id="codeBlock" class="language-html">{% schema %}
+{
+  &quot;name&quot;: &quot;Marquee Announcement Bar&quot;,
+  &quot;tag&quot;: &quot;section&quot;,
+  &quot;class&quot;: &quot;section marquee-announcement-bar&quot;,
+  &quot;settings&quot;: [
+    {
+      &quot;type&quot;: &quot;color&quot;,
+      &quot;id&quot;: &quot;background_color&quot;,
+      &quot;label&quot;: &quot;Background color&quot;,
+      &quot;default&quot;: &quot;#000000&quot;
+    },
+    {
+      &quot;type&quot;: &quot;color&quot;,
+      &quot;id&quot;: &quot;text_color&quot;,
+      &quot;label&quot;: &quot;Text color&quot;,
+      &quot;default&quot;: &quot;#ffffff&quot;
+    },
+    {
+      &quot;type&quot;: &quot;number&quot;,
+      &quot;id&quot;: &quot;scroll_speed&quot;,
+      &quot;label&quot;: &quot;Scroll duration (seconds)&quot;,
+      &quot;default&quot;: 15
+    },
+    {
+      &quot;type&quot;: &quot;range&quot;,
+      &quot;id&quot;: &quot;font_size&quot;,
+      &quot;label&quot;: &quot;Font size (px)&quot;,
+      &quot;default&quot;: 16,
+      &quot;min&quot;: 10,
+      &quot;max&quot;: 30,
+      &quot;step&quot;: 1
+    },
+    {
+      &quot;type&quot;: &quot;select&quot;,
+      &quot;id&quot;: &quot;font_weight&quot;,
+      &quot;label&quot;: &quot;Font weight&quot;,
+      &quot;default&quot;: &quot;normal&quot;,
+      &quot;options&quot;: [
+        { &quot;value&quot;: &quot;normal&quot;, &quot;label&quot;: &quot;Normal&quot; },
+        { &quot;value&quot;: &quot;bold&quot;, &quot;label&quot;: &quot;Bold&quot; },
+        { &quot;value&quot;: &quot;lighter&quot;, &quot;label&quot;: &quot;Lighter&quot; },
+        { &quot;value&quot;: &quot;bolder&quot;, &quot;label&quot;: &quot;Bolder&quot; },
+        { &quot;value&quot;: &quot;100&quot;, &quot;label&quot;: &quot;100&quot; },
+        { &quot;value&quot;: &quot;200&quot;, &quot;label&quot;: &quot;200&quot; },
+        { &quot;value&quot;: &quot;300&quot;, &quot;label&quot;: &quot;300&quot; },
+        { &quot;value&quot;: &quot;400&quot;, &quot;label&quot;: &quot;400&quot; },
+        { &quot;value&quot;: &quot;500&quot;, &quot;label&quot;: &quot;500&quot; },
+        { &quot;value&quot;: &quot;600&quot;, &quot;label&quot;: &quot;600&quot; },
+        { &quot;value&quot;: &quot;700&quot;, &quot;label&quot;: &quot;700&quot; },
+        { &quot;value&quot;: &quot;800&quot;, &quot;label&quot;: &quot;800&quot; },
+        { &quot;value&quot;: &quot;900&quot;, &quot;label&quot;: &quot;900&quot; }
+      ]
+    }
+  ],
+  &quot;blocks&quot;: [
+    {
+      &quot;type&quot;: &quot;message&quot;,
+      &quot;name&quot;: &quot;Message&quot;,
+      &quot;settings&quot;: [
+        {
+          &quot;type&quot;: &quot;text&quot;,
+          &quot;id&quot;: &quot;text&quot;,
+          &quot;label&quot;: &quot;Announcement text&quot;,
+          &quot;default&quot;: &quot;Free shipping on all orders!&quot;
+        }
+      ]
+    }
+  ],
+  &quot;presets&quot;: [
+    {
+      &quot;name&quot;: &quot;Marquee Announcement Bar&quot;,
+      &quot;category&quot;: &quot;Custom&quot;
+    }
+  ]
+}
+{% endschema %}
+
+&lt;div class=&quot;marquee-wrapper&quot; style=&quot;background-color: {{ section.settings.background_color }};&quot;&gt;
+  &lt;div class=&quot;marquee-content&quot;
+       style=&quot;color: {{ section.settings.text_color }};
+              animation-duration: {{ section.settings.scroll_speed | default: 15 }}s;
+              font-size: {{ section.settings.font_size | default: 16 }}px;
+              font-weight: {{ section.settings.font_weight | default: 'normal' }};&quot;&gt;
+    {% for block in section.blocks %}
+      &lt;span class=&quot;marquee-message&quot;&gt;{{ block.settings.text }}&lt;/span&gt;
+    {% endfor %}
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    position: relative;
+  }
+
+  .marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee-scroll linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-message {
+    display: inline-block;
+    margin-right: 50px;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+&lt;/style&gt;</code></pre>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+
+    const copyBtn = document.getElementById('copyBtn');
+    const codeBlock = document.getElementById('codeBlock');
+    const copySuccess = document.getElementById('copySuccess');
+
+    copyBtn.addEventListener('click', () => {
+      // Create a temporary textarea to hold the raw text for copying
+      const text = codeBlock.innerText || codeBlock.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        // Show copied message
+        copySuccess.classList.add('show');
+        setTimeout(() => {
+          copySuccess.classList.remove('show');
+        }, 1500);
+      }).catch(() => {
+        alert('Failed to copy code.');
+      });
+    });
+  </script>
+</body>
+</html>
